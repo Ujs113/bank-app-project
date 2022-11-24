@@ -1,7 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_payment_app/pages/my_home_page.dart';
 import 'package:flutter_payment_app/pages/signup_page.dart';
 import 'package:get/get.dart';
+import '../component/AuthHelper.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -92,10 +94,11 @@ class _LoginPageState extends State<LoginPage> {
                     padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
                     child: ElevatedButton(
                       child: const Text('Login',style: TextStyle(fontSize: 20),),
-                      onPressed: () {
-                        print(nameController.text);
-                        print(passwordController.text);
-                        Get.to(()=>MyHomePage());
+                      onPressed: () async {
+                        User? user = await AuthHelper.signIn(email: nameController.text, password: passwordController.text);
+                        
+                        if(user != null)
+                          Get.to(()=>MyHomePage());
                       },
                     )
                 ),
@@ -110,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                     const Text('Do not have account?',style: TextStyle(color: Colors.white,fontSize: 16),),
                     TextButton(
                       child: const Text(
-                        'Sign in',
+                        'Sign Up',
                         style: TextStyle(fontSize: 20, color: Colors.black),
                       ),
                       onPressed: () {

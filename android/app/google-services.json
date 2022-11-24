@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "130836396032",
+    "project_id": "payment-app-6f9be",
+    "storage_bucket": "payment-app-6f9be.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:130836396032:android:b04e0a1824d69169c180e5",
+        "android_client_info": {
+          "package_name": "com.example.pay_lab"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "130836396032-j0h0coi6j623ds3gknik8gghjh8irvmd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1D3pRKT1cBjjpHnOlQ7rVxTYkda1yxc4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "130836396032-j0h0coi6j623ds3gknik8gghjh8irvmd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "130836396032-er98kfve8ou6mtkrbq0sic8ms1bca7ho.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.payLab"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

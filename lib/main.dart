@@ -1,10 +1,22 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_payment_app/firebase_options.dart';
 import 'package:flutter_payment_app/pages/login_page.dart';
 import 'package:flutter_payment_app/pages/my_home_page.dart';
 import 'package:flutter_payment_app/pages/payment_page.dart';
 import 'package:get/get.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  try {
+     await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+   } catch (e) {
+     print(e);
+   }
   runApp(MyApp());
 }
 
