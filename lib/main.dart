@@ -13,12 +13,12 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  try {
-     await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
-     FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
-   } catch (e) {
-     print(e);
-   }
+  // try {
+  //    await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+  //    FirebaseFirestore.instance.useFirestoreEmulator('localhost', 8080);
+  //  } catch (e) {
+  //    print(e);
+  //  }
   runApp(MyApp());
 }
 
