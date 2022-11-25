@@ -18,6 +18,12 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
+    // User? user = FirebaseAuth.instance.currentUser;
+    // if(user != null) {
+    //   Navigator.of(context).pushReplacement(
+    //     MaterialPageRoute(builder: ((context) => MyHomePage())
+    //   ));
+    // }
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
