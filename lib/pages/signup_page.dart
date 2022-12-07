@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import '../component/AuthHelper.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -121,9 +123,8 @@ class _SignUpPageState extends State<SignUpPage> {
                     padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
                     child: ElevatedButton(
                       child: const Text('Sign Up',style: TextStyle(fontSize: 20),),
-                      onPressed: () {
-                        print(nameController.text);
-                        print(passwordController.text);
+                      onPressed: () async {
+                        User? user = await AuthHelper.register(name: nameController.text, email: nameController.text, password: passwordController.text);
                         if(passwordController.text==rePasswordController.text) {
                           Get.back();
                         }else{

@@ -79,7 +79,6 @@ class IntegrateAccount extends StatelessWidget {
                       child: const Text('Begin Account Integration',style: TextStyle(fontSize: 20),),
                       onPressed: () {
                         User? user = FirebaseAuth.instance.currentUser;
-                        print(user);
                         addAccount(bankCont.text, accNoCont.text, user!);
                         Get.back();
                       },
