@@ -1,7 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import '../component/AuthHelper.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -14,6 +12,8 @@ class _SignUpPageState extends State<SignUpPage> {
   TextEditingController nameController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController rePasswordController = TextEditingController();
+
+  String? e_text;
 
   @override
   Widget build(BuildContext context) {
@@ -112,16 +112,26 @@ class _SignUpPageState extends State<SignUpPage> {
                     ),
                   ),
                 ),
+                SizedBox(height: 10,),
+                (e_text=='E')
+                  ? Text("Passwords don't match",style: TextStyle(color: Colors.red,fontSize: 15, fontWeight: FontWeight.bold),)
+                  : SizedBox(height: 10,),
                 Container(
                     height: 70,
                     padding: const EdgeInsets.fromLTRB(10, 20, 10, 0),
                     child: ElevatedButton(
                       child: const Text('Sign Up',style: TextStyle(fontSize: 20),),
-                      onPressed: () async {
-                        User? user = await AuthHelper.register(name: nameController.text, email: nameController.text, password: passwordController.text);
-                        
-                        if(user != null)
+                      onPressed: () {
+                        print(nameController.text);
+                        print(passwordController.text);
+                        if(passwordController.text==rePasswordController.text) {
                           Get.back();
+                        }else{
+                          e_text="E";
+                          setState(() {
+
+                          });
+                        }
                       },
                     )
                 ),
