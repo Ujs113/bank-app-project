@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_payment_app/component/database.dart';
 import 'package:get/get.dart';
 
 class IntegrateAccount extends StatelessWidget {
@@ -76,8 +78,9 @@ class IntegrateAccount extends StatelessWidget {
                     child: ElevatedButton(
                       child: const Text('Begin Account Integration',style: TextStyle(fontSize: 20),),
                       onPressed: () {
-                        print(accNoCont.text);
-                        print(bankCont.text);
+                        User? user = FirebaseAuth.instance.currentUser;
+                        print(user);
+                        addAccount(bankCont.text, accNoCont.text, user!);
                         Get.back();
                       },
                     )
